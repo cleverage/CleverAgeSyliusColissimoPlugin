@@ -2,6 +2,13 @@
     "name": "cleverage/sylius-colissimo-plugin",
     "type": "sylius-plugin",
     "description": "Colissimo plugin for Sylius.",
+    "authors": [
+        {
+            "name": "Quentin Gans",
+            "email": "qgans@clever-age.com",
+            "homepage": "https://quentingans.fr"
+        }
+    ],
     "keywords": [
         "sylius",
         "sylius-plugin",
