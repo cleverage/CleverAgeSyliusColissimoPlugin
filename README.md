@@ -161,8 +161,8 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use CleverAge\CleverAgeSyliusColissimoPlugin\Model\ShippingMethodInterface;
-use CleverAge\CleverAgeSyliusColissimoPlugin\Model\ShippingMethodTrait;
+use CleverAge\SyliusColissimoPlugin\Model\ShippingMethodInterface;
+use CleverAge\SyliusColissimoPlugin\Model\ShippingMethodTrait;
 use Sylius\Component\Core\Model\ShippingMethod as BaseShippingMethod;
 
 /**
@@ -207,7 +207,7 @@ You can read about extending resources [here](https://docs.sylius.com/en/latest/
 
 **Update shipping and order resources config**
 
-Next you need to tell Sylius that you will use your own extended resources:
+Next you need to tell Sylius that you will use your own extended resources :
 
 ```yaml
 # config/packages/_sylius.yaml
@@ -240,6 +240,8 @@ bin/console doctrine:migrations:migrate
 clever_age_sylius_colissimo:
   encryptionKey: 'your encryption key'
 ```
+
+Enjoy now ! 
 
 [ico-version]: https://poser.pugx.org/cleverage/sylius-colissimo-plugin/v/stable
 [ico-license]: https://poser.pugx.org/cleverage/sylius-colissimo-plugin/license
