@@ -90,7 +90,7 @@ Add the following to the shop template `SyliusShopBundle/Checkout/SelectShipping
 
 ```twig
 // ...
-{% if not method.isColissimoPickup %}
+{% if method.isColissimoPickup %}
     {% include '@CleverAgeSyliusColissimoPlugin/Shipment/selectedPickupPoint.html.twig' %}
 {% endif %}
 // ...
