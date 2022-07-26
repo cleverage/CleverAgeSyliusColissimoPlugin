@@ -1,0 +1,29 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+    bind:
+      $encryptionKey: '%cleverage_sylius_colissimo.encryptionKey%'
+
+  CleverAge\SyliusColissimoPlugin\:
+    resource: '../../*'
+    exclude: '../../{Entity,Migrations,CleverAgeSyliusColissimoPlugin.php}'
+
+  CleverAge\SyliusColissimoPlugin\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']
+
+  CleverAge\SyliusColissimoPlugin\Menu\AdminMenuListener:
+    tags:
+      - { name: kernel.event_listener, event: sylius.menu.admin.main }
+
+  clever_age_sylius_colissimo_plugin.form.extension.type.shipping_method:
+    class: CleverAge\SyliusColissimoPlugin\Form\Extension\ShippingMethodTypeExtension
+    tags:
+      - { name: form.type_extension, extended_type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodType }
+
+  clever_age_sylius_colissimo_plugin.form.extension.type.shipping_method_choice_type:
+    class: CleverAge\SyliusColissimoPlugin\Form\Extension\ShippingMethodChoiceTypeExtension
+    tags:
+      - { name: form.type_extension, extended_type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodChoiceType }

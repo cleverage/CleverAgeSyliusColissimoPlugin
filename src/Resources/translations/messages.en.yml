@@ -1,0 +1,41 @@
+clever_age:
+  ui:
+    colissimo_parameter:
+      test_mode_enabled: 'Test mode enabled ?'
+      contract_number: Contract number
+      password: Password
+      commercial_name: Commercial name
+      company_name: Company name
+      line0: 'Floor, corridor, staircase, apartment'
+      line1: 'Entrance, building, building, residence'
+      line2: Street number and label
+      line3: Place said or other mention
+      country_code: Alpha2 country code
+      zip_code: Zip code
+      city: City
+    map:
+      nearest_pickup_points: 'Our nearest relay points :'
+      choose_this_pickup_point: Choose this relay point
+    pickup_point:
+      post_office: Post office
+      trader: Trader
+      chosen: 'Relay point selected :'
+      change: Change relay point
+      opening_hours: Opening hours
+      shipment_to: To pickup point
+  admin:
+    ui:
+      colissimo_parameter:
+        menu:
+          title: Colissimo
+          label: Parameters
+        title: Colissimo parameters
+        auth: API Authentication
+        sender: Sender information
+        success: Your colissimo settings have been updated !
+      shipping_method:
+        title: Colissimo parameters
+        colissimo_pickup: Colissimo Pickup
+        colissimo_home_delivery: Colissimo home delivery
+
+

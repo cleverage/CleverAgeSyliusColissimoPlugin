@@ -1,0 +1,15 @@
+{% set pickupPointId = order.pickupPointId %}
+
+{% if pickupPointId %}
+    {% set pickupPoint = clever_age_colissimo_get_pickup_by_id(pickupPointId) %}
+
+    {% if pickupPoint %}
+        <label class="pickup-point-label">
+            {{ 'clever_age.ui.pickup_point.shipment_to'|trans }}
+            <i>
+                "{{ pickupPoint.get('name') }}, {{ pickupPoint.get('streetName') }},
+                {{ pickupPoint.get('postalCode') }}, {{ pickupPoint.get('city') }}"
+            </i>
+        </label>
+    {% endif %}
+{% endif %}

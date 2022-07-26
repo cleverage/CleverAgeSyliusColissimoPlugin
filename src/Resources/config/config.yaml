@@ -1,0 +1,2 @@
+imports:
+  - { resource: "@CleverAgeSyliusColissimoPlugin/Resources/config/services.yml" }

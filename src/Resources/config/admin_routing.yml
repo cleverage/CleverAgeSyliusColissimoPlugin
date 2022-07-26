@@ -1,0 +1,5 @@
+# Define your own admin routes here
+admin_settings_colissimo_parameter:
+  path: /settings/colissimo-parameter
+  controller: CleverAge\SyliusColissimoPlugin\Controller\Admin\UpdateColissimoParameterAction
+

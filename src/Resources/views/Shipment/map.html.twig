@@ -1,0 +1,35 @@
+<div class="colissimo-map-container">
+    <div class="colissimo-map-content">
+        <div class="points-list">
+            <p>{{ 'clever_age.ui.map.nearest_pickup_points'|trans }}</p>
+            <ul>
+                {% for pickupPoint in pickupPoints %}
+                    <li>
+                        <span>
+                            <i>{{ clever_age_colissimo_get_pickup_type_name(pickupPoint.pointType) }}</i>
+                            <strong>{{ pickupPoint.name }}</strong>
+                            <span>{{ pickupPoint.streetName }}, {{ pickupPoint.postalCode }}, {{ pickupPoint.city }}</span>
+                        </span>
+                        <div class="pickup-point-btn">
+                            <a onclick="selectPickupPoint(this)"
+                               id="choose-pickup-point"
+                               class="ui large primary button"
+                               data-identifier="{{ pickupPoint.id }}"
+                            >
+                                <span>{{ 'clever_age.ui.map.choose_this_pickup_point'|trans }}</span>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="pickup-points-map">
+            <div id="colissimo-map"
+                 data-points="{{ pickupPoints|json_encode }}"
+                 data-set-pickup-url="{{ path('shop_ajax_set_pickup_point_by_id_to_order') }}"
+            >
+            </div>
+        </div>
+    </div>
+</div>

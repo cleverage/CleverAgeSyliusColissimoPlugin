@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: CleverAge\SyliusColissimoPlugin
+        psr4_prefix: CleverAge\SyliusColissimoPlugin

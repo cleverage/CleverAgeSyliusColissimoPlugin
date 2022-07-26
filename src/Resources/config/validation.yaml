@@ -1,0 +1,18 @@
+CleverAge\SyliusColissimoPlugin\Entity\ColissimoParameter:
+  properties:
+    contractNumber:
+      - NotBlank: ~
+    password:
+      - NotBlank: ~
+    commercialName:
+      - NotBlank: ~
+    companyName:
+      - NotBlank: ~
+    line2:
+      - NotBlank: ~
+    countryCode:
+      - NotBlank: ~
+    zipCode:
+      - NotBlank: ~
+    city:
+      - NotBlank: ~

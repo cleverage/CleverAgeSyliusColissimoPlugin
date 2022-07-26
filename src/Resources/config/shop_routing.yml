@@ -1,0 +1,15 @@
+# Delete these routes and define your own shop routes here
+shop_ajax_find_pickup_points_by_cart_address:
+  path: /ajax/pickup-points
+  methods: [GET]
+  controller: CleverAge\SyliusColissimoPlugin\Controller\Shop\PickupPointsSearchByCartAddressAction
+
+shop_ajax_find_pickup_point_by_id:
+  path: /ajax/pickup-points/{pickupPointId}
+  methods: [GET]
+  controller: CleverAge\SyliusColissimoPlugin\Controller\Shop\PickupPointSearchByIdAction
+
+shop_ajax_set_pickup_point_by_id_to_order:
+  path: /ajax/pickup-points/set-to-order
+  methods: [POST, PUT]
+  controller: CleverAge\SyliusColissimoPlugin\Controller\Shop\SetPickupPointIdToOrderAction

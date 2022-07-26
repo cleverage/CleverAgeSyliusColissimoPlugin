@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:5.7
+    restart: on-failure
+    networks: [test]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: colissimo
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.1
+    environment:
+      - PMA_ARBITRARY=1
+    networks: [test]
+    ports:
+      - 81:80
+
+networks:
+  test:

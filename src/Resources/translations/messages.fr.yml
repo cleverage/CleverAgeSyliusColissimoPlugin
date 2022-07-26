@@ -1,0 +1,41 @@
+clever_age:
+  ui:
+    colissimo_parameter:
+      test_mode_enabled: 'Mode de test activé ?'
+      contract_number: Numéro de contrat
+      password: Mot de passe
+      commercial_name: Nom commercial du chargeur
+      company_name: Raison sociale
+      line0: 'Etage, couloir, escalier, appart'
+      line1: 'Entrée, bâtiment, immeuble, résidence'
+      line2: Numéro et libellé de voie
+      line3: Lieu dit ou autre mention
+      country_code: Code Alpha2 du pays
+      zip_code: Code postal
+      city: Ville
+    map:
+      nearest_pickup_points: 'Nos points relais les plus proches :'
+      choose_this_pickup_point: Choisir ce point relais
+    pickup_point:
+      post_office: Poste
+      trader: Commerçant
+      chosen: 'Point relais sélectionné :'
+      change: Changer de point relais
+      opening_hours: Horaires d'ouverture
+      shipment_to: Au point relais
+  admin:
+    ui:
+      colissimo_parameter:
+        menu:
+          title: Colissimo
+          label: Paramètres
+        title: Paramètres colissimo
+        auth: Authentification API
+        sender: Informations expéditeur
+        success: Vos paramètres colissimo ont bien été mis à jour !
+      shipping_method:
+        title: Paramètres Colissimo
+        colissimo_pickup: Livraison en point relais Colissimo
+        colissimo_home_delivery: Livraison à domicile Colissimo
+
+

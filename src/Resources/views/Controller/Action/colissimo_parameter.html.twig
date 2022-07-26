@@ -1,0 +1,44 @@
+{% extends '@SyliusAdmin/layout.html.twig' %}
+
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+
+{% block title %}
+    {{ 'clever_age.admin.ui.colissimo_parameter.title'|trans ~ parent() }}
+{% endblock %}
+
+{% block content %}
+    <form name="{{ form.vars.name }}" method="post" class="ui form loadable" novalidate="novalidate">
+        <div class="column mt10">
+            <div class="ui segment">
+                <h4 class="ui dividing header">{{ 'clever_age.admin.ui.colissimo_parameter.auth'|trans }}</h4>
+                {{ form_row(form.testModeEnabled) }}
+
+                {{ form_row(form.contractNumber) }}
+                {{ form_row(form.password) }}
+            </div>
+
+            <div class="ui segment">
+                <h4 class="ui dividing header">{{ 'clever_age.admin.ui.colissimo_parameter.sender'|trans }}</h4>
+                {{ form_row(form.commercialName) }}
+                {{ form_row(form.companyName) }}
+
+                {{ form_row(form.line0) }}
+                {{ form_row(form.line1) }}
+                {{ form_row(form.line2) }}
+                {{ form_row(form.line3) }}
+
+                {{ form_row(form.countryCode) }}
+                {{ form_row(form.zipCode) }}
+                {{ form_row(form.city) }}
+            </div>
+        </div>
+
+        <div class="ui buttons" style="margin-top: 1rem">
+            <button class="ui labeled icon primary button" type="submit" id="sylius_save_changes_button">
+                <i class="save icon"></i> {{ 'sylius.ui.save_changes'|trans }}
+            </button>
+        </div>
+
+        {{ form_row(form._token) }}
+    </form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '@SyliusUi/_stylesheets.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/css/map.css' } %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/css/popup.css' } %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/map.js' } %}
+    {% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/select-pickup-point.js' } %}
+    {% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/change-pickup-point.js' } %}
+    {% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/select-shipping.js' } %}
+
+    {{ sonata_block_render_event('sylius.shop.layout.javascripts') }}
+{% endblock %}

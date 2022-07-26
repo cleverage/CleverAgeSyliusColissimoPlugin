@@ -1,0 +1,8 @@
+{% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'assets/shop/js/app.js' } %}
+
+{# CleverAgeSyliusColissimoPlugin start customization #}
+<script src="{{ asset('bundles/cleveragesyliuscolissimoplugin/js/map.js') }}" type="module"></script>
+{% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/select-pickup-point.js' } %}
+{% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/change-pickup-point.js' } %}
+{% include '@SyliusUi/_javascripts.html.twig' with { 'path': 'bundles/cleveragesyliuscolissimoplugin/js/select-shipping.js' } %}
+{# CleverAgeSyliusColissimoPlugin end customization #}

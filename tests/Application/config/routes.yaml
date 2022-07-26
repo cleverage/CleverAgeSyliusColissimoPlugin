@@ -1,0 +1,9 @@
+clever_age_sylius_colissimo_shop:
+    resource: "@CleverAgeSyliusColissimoPlugin/Resources/config/shop_routing.yml"
+    prefix: /{_locale}
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+clever_age_sylius_colissimo_admin:
+    resource: "@CleverAgeSyliusColissimoPlugin/Resources/config/admin_routing.yml"
+    prefix: /admin

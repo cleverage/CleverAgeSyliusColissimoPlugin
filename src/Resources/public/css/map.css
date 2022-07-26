@@ -1,0 +1,84 @@
+.colissimo-map-container {
+    max-height: 0;
+    -webkit-transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.colissimo-map-content {
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s, opacity .5s linear;
+}
+
+.active .colissimo-map-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.colissimo-map-container.active {
+    max-height: 500px;
+    -webkit-transition: max-height 1s ease;
+    transition: max-height 1s ease;
+    overflow: hidden;
+}
+
+.points-list {
+    width: 40%;
+    overflow: auto;
+    height: 33.75rem;
+}
+
+.points-list > p {
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.points-list > ul {
+    padding: 0;
+    list-style: none;
+    border: solid #d8d8d8;
+    border-width: 0 1px 1px;
+}
+
+.points-list > ul > li {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #d8d8d8;
+    list-style-type: none;
+    line-height: 1.5rem;
+}
+
+.points-list > ul > li > span {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0.625rem 0.9375rem 0;
+    font-size: .0875rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1.5rem;
+}
+
+.points-list > ul > li > span > * {
+    display: block;
+    font-size: .875rem;
+}
+
+.pickup-point-btn {
+    padding: 0.625rem 0.9375rem;
+}
+
+#pickup-points-map {
+    width: 60%;
+}
+
+#colissimo-map {
+    height: 472px;
+    position: relative;
+    outline: none;
+}
