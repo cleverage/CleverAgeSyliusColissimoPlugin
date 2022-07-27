@@ -79,7 +79,7 @@ Next add the following to the admin template `SyliusAdminBundle/Order/Show/_ship
 after shipment header:
 
 ```twig
-{% include "@CleverAgeSyliusColissimoPlugin/Label/Shipment/pickupPoint.html.twig" %}
+{% include "CleverAgeSyliusColissimoPlugin/Shipment/Label/pickupPoint.html.twig" %}
 ```
 
 See an example [here](tests/Application/templates/bundles/SyliusAdminBundle/Order/Show/_shipment.html.twig).
@@ -107,7 +107,7 @@ Next add the following to the shop template `SyliusShopBundle/Common/Order/_ship
 after shipment method header:
 
 ```twig
-{% include "@CleverAgeSyliusColissimoPlugin/Label/Shipment/pickupPoint.html.twig" %}
+{% include "@CleverAgeSyliusColissimoPlugin/Shipment/Label/pickupPoint.html.twig" %}
 ```
 
 See an example [here](tests/Application/templates/bundles/SyliusShopBundle/Common/Order/_shipments.html.twig).

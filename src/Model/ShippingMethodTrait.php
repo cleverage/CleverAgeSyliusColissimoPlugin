@@ -8,12 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait ShippingMethodTrait
 {
-    /***
+    /**
      * @ORM\Column(type="boolean", name="colissimo_pickup", options={"default": "0"})
      */
     protected bool $colissimoPickup = false;
 
-    /***
+    /**
      * @ORM\Column(type="boolean", name="colissimo_home_delivery",  options={"default": "0"})
      */
     protected bool $colissimoHomeDelivery = false;

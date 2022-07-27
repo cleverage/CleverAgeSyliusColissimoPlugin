@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait OrderTrait
 {
-    /***
+    /**
      * @ORM\Column(type="string", name="pickup_point_id", nullable=true)
      */
     protected ?string $pickupPointId = null;
