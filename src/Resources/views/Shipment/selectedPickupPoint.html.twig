@@ -1,7 +1,18 @@
-<div class="selected-pickup-container" hidden>
+{% set pickupPoint = '' %}
+
+{% if order.pickupPointId %}
+    {% set pickupPoint = clever_age_colissimo_format_pickup_point(clever_age_colissimo_get_pickup_by_id(order.pickupPointId)) %}
+{% endif %}
+
+<div class="selected-pickup-container" {% if not order.pickupPointId %}hidden{% endif %}>
     <p><strong>{{ 'clever_age.ui.pickup_point.chosen'|trans }}</strong></p>
-    <p id="selected-pickup"></p>
-    <button id="remove-pickup" class="change-pickup ui primary icon labeled button" type="button">
+    <p id="selected-pickup">{{ pickupPoint }}</p>
+    <button id="remove-pickup"
+            class="change-pickup ui primary icon labeled button"
+            data-remove-url="{{ path('shop_ajax_remove_pickup_point_by_id_to_order') }}"
+            data-identifier="{{ order.pickupPointId }}"
+            type="button"
+    >
         <i class="ban icon"></i>
         {{ 'clever_age.ui.pickup_point.change'|trans }}
     </button>

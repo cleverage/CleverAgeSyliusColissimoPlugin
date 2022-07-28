@@ -13,3 +13,8 @@ shop_ajax_set_pickup_point_by_id_to_order:
   path: /ajax/pickup-points/set-to-order
   methods: [POST, PUT]
   controller: CleverAge\SyliusColissimoPlugin\Controller\Shop\SetPickupPointIdToOrderAction
+
+shop_ajax_remove_pickup_point_by_id_to_order:
+  path: /ajax/pickup-points/remove-to-order
+  methods: [DELETE]
+  controller: CleverAge\SyliusColissimoPlugin\Controller\Shop\RemovePickupPointIdToOrderAction

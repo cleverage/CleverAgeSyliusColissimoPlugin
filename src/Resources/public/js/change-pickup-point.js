@@ -9,6 +9,8 @@ if (removePickup) {
         // Hide selected pickup
         document.querySelector('.selected-pickup-container').setAttribute('hidden', 'hidden')
 
+        removeFromDatabase(removePickup)
+
         const nextStep = document.getElementById('next-step')
         if (nextStep) {
             nextStep.setAttribute('disabled', 'disabled')
@@ -16,3 +18,19 @@ if (removePickup) {
     })
 }
 
+const removeFromDatabase = element => {
+    const { removeUrl, identifier } = element.dataset
+
+    if (!identifier) {
+        return
+    }
+
+    fetch(removeUrl + '?pickupPointId=' + identifier, {
+        method: 'DELETE',
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Do like you want !
+        })
+        .catch(error => console.log(error))
+}

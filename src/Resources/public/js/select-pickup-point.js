@@ -20,9 +20,9 @@ window.selectPickupPoint = function (element) {
     })
         .then(response => response.json())
         .then(data => {
-            document.dispatchEvent(new CustomEvent('pickupPointSelected', { detail: {
-                pickupPoint: data,
-            } }))
+            document.dispatchEvent(new CustomEvent('pickupPointSelected', {
+                detail: { pickupPoint: data },
+            }))
         })
         .catch(error => console.log(error))
 }
@@ -41,6 +41,10 @@ document.addEventListener('pickupPointSelected', function (e) {
     colissimoMap.classList.remove('active')
     selectedPickup.innerText = pickupPoint.name + ' ' + pickupPoint.streetName + ', ' + pickupPoint.postalCode + ', '  + pickupPoint.city
     pickupContainer.removeAttribute('hidden')
+
+    // Set the identifier to the remove pickup button.
+    const removePickup = document.getElementById('remove-pickup')
+    removePickup.setAttribute('data-identifier', pickupPoint.id)
 
     const nextStep = document.getElementById('next-step')
     if (nextStep) {

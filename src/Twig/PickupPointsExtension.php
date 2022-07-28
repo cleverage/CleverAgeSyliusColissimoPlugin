@@ -35,6 +35,7 @@ final class PickupPointsExtension extends AbstractExtension
             new TwigFunction('clever_age_colissimo_get_pickup_points', [$this, 'getPickupPoints']),
             new TwigFunction('clever_age_colissimo_get_pickup_by_id', [$this, 'getPickupPointById']),
             new TwigFunction('clever_age_colissimo_get_pickup_type_name', [$this, 'getTypeName']),
+            new TwigFunction('clever_age_colissimo_format_pickup_point', [$this, 'formatPickupPoint']),
         ];
     }
 
@@ -72,5 +73,16 @@ final class PickupPointsExtension extends AbstractExtension
             default:
                 return '';
         }
+    }
+
+    public function formatPickupPoint(PickupPoint $pickupPoint): string
+    {
+        return sprintf(
+            '%s, %s, %s, %s',
+            $pickupPoint->get('name'),
+            $pickupPoint->get('streetName'),
+            $pickupPoint->get('postalCode'),
+            $pickupPoint->get('city'),
+        );
     }
 }

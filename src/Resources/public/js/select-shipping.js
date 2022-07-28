@@ -1,9 +1,15 @@
-const manageColissimoMap = element => {
+const manageColissimoMap = (element, removePickup = null) => {
     const colissimoMapContainer = document.getElementsByClassName('colissimo-map-container')[0]
     const isColissimoPickup = typeof element.dataset.colissimoPickup !== 'undefined'
 
+    if (removePickup) removePickup.click()
+
     if (isColissimoPickup) {
-        colissimoMapContainer.classList.add('active')
+        if (colissimoMapContainer.classList.contains('hasPickupPoint')) {
+            colissimoMapContainer.classList.remove('hasPickupPoint')
+        } else {
+            colissimoMapContainer.classList.add('active')
+        }
     } else {
         colissimoMapContainer.classList.remove('active')
     }
@@ -26,7 +32,9 @@ if (choices.length) {
     const defaultChecked = document.querySelector('form[name="sylius_checkout_select_shipping"] input[type="radio"][checked]')
     const removePickup = document.getElementById('remove-pickup')
 
-    manageColissimoMap(defaultChecked)
+    if (defaultChecked) {
+        manageColissimoMap(defaultChecked, removePickup)
+    }
 
     choices.forEach(elem => {
         elem.addEventListener('change', function () {

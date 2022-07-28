@@ -1,4 +1,4 @@
-<div class="colissimo-map-container">
+<div class="colissimo-map-container {% if order.pickupPointId %}hasPickupPoint{% endif %}">
     <div class="colissimo-map-content">
         <div class="points-list">
             <p>{{ 'clever_age.ui.map.nearest_pickup_points'|trans }}</p>
