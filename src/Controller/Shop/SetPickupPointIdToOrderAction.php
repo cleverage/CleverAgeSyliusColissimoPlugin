@@ -4,6 +4,7 @@ namespace CleverAge\SyliusColissimoPlugin\Controller\Shop;
 
 use CleverAge\SyliusColissimoPlugin\Controller\ActionInterface;
 use CleverAge\SyliusColissimoPlugin\Model\OrderInterface;
+use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\Enum\PickupPointReseau;
 use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\PickupPointSearchByIdModel;
 use CleverAge\SyliusColissimoPlugin\Service\PickupPointByIdService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -48,7 +49,13 @@ final class SetPickupPointIdToOrderAction implements ActionInterface
             ((new \DateTime())->add(new \DateInterval('P2D')))->format('d/m/Y'),
         );
 
-        $pickupPoint = $this->pickupPointByIdService->call($search);
+        $options = [];
+        $countryCode = $order->getShippingAddress()->getCountryCode();
+        if ($countryCode !== 'FR') {
+            $options['reseau'] = PickupPointReseau::getByCountryCodeAndProductCode($countryCode);
+        }
+
+        $pickupPoint = $this->pickupPointByIdService->call($search, $options);
         if (null === $pickupPoint) {
             throw new NotFoundHttpException("Pickup point not found for id '$pickupPointId'");
         }

@@ -15,7 +15,7 @@
         {% endif %}
 
         {# CleverAgeSyliusColissimoPlugin start customization #}
-        {% if not method.isColissimoPickup %}
+        {% if method.isColissimoPickup %}
             {% include '@CleverAgeSyliusColissimoPlugin/Shipment/selectedPickupPoint.html.twig' %}
         {% endif %}
         {# CleverAgeSyliusColissimoPlugin end customization #}

@@ -7,30 +7,30 @@ use CleverAge\SyliusColissimoPlugin\Model\BaseEnum;
 class ProductCode extends BaseEnum
 {
     // FRANCE
-    const DOM  = 'DOM';
-    const COLD = 'COLD';
-    const DOS  = 'DOS';
-    const COL  = 'COL';
-    const BPR  = 'BPR';
-    const A2P  = 'A2P';
-    const CORE = 'CORE';
-    const COLR = 'COLR';
-    const JP1  = 'J+1';
+    public const DOM  = 'DOM';
+    public const COLD = 'COLD';
+    public const DOS  = 'DOS';
+    public const COL  = 'COL';
+    public const BPR  = 'BPR';
+    public const A2P  = 'A2P';
+    public const CORE = 'CORE';
+    public const COLR = 'COLR';
+    public const JP1  = 'J+1';
 
     // International
-    const CORI = 'CORI';
-    const COM  = 'COM';
-    const CDS  = 'CDS';
-    const ECO  = 'ECO';
-    const ACP  = 'ACP';
-    const COLI = 'COLI';
-    const ACCI = 'ACCI';
-    const CMT  = 'CMT';
-    const PCS  = 'PCS';
-    const BDP  = 'BDP';
-    const CDI  = 'CDI';
-    const BOS  = 'BOS';
-    const BOM  = 'BOM';
+    public const CORI = 'CORI';
+    public const COM  = 'COM';
+    public const CDS  = 'CDS';
+    public const ECO  = 'ECO';
+    public const ACP  = 'ACP';
+    public const COLI = 'COLI';
+    public const ACCI = 'ACCI';
+    public const CMT  = 'CMT';
+    public const PCS  = 'PCS';
+    public const BDP  = 'BDP';
+    public const CDI  = 'CDI';
+    public const BOS  = 'BOS';
+    public const BOM  = 'BOM';
 
     public const ALL = [
         '6A'  => self::DOM,
