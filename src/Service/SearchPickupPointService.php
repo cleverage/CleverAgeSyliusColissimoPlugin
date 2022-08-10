@@ -47,11 +47,16 @@ final class SearchPickupPointService
     public function byCartAddress(AddressInterface $shippingAddress, array $options = []): array
     {
         $search = new PickupPointsSearchModel(
+            $shippingAddress->getStreet(),
             $shippingAddress->getPostcode(),
             $shippingAddress->getCity(),
             $shippingAddress->getCountryCode(),
             ((new \DateTime())->add(new \DateInterval('P2D')))->format('d/m/Y'),
         );
+
+        if (array_key_exists('shippingDate', $options)) {
+            $search->setShippingDate($options['shippingDate']);
+        }
 
         return array_map(
             static fn (PickupPoint $pickupPoint) => $pickupPoint->getData(),
