@@ -24,6 +24,7 @@ class PickupPointsService extends AbstractService
         array $options = []
     ): array {
         return $this->doCall(Request::METHOD_GET, self::URL, array_merge([
+            'address' => $pickupPointsSearchModel->getAddress(),
             'city' => $pickupPointsSearchModel->getCity(),
             'zipCode' => $pickupPointsSearchModel->getZipCode(),
             'countryCode' => $pickupPointsSearchModel->getCountryCode(),
