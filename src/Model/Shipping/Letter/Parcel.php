@@ -4,15 +4,22 @@ namespace CleverAge\SyliusColissimoPlugin\Model\Shipping\Letter;
 
 class Parcel
 {
-    private int $weight;
+    /** @var int|float */
+    private $weight;
     private ?string $pickupLocationId = null;
 
-    public function getWeight(): int
+    /**
+     * @return float|int
+     */
+    public function getWeight()
     {
         return $this->weight;
     }
 
-    public function setWeight(int $weight): Parcel
+    /**
+     * @param int|float $weight
+     */
+    public function setWeight($weight): Parcel
     {
         $this->weight = $weight;
 
