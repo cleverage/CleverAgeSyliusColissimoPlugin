@@ -5,10 +5,8 @@ namespace CleverAge\SyliusColissimoPlugin\Twig;
 use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\Enum\PickupPointType;
 use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\PickupPoint;
 use CleverAge\SyliusColissimoPlugin\Service\SearchPickupPointService;
-use Nette\Utils\Json;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Order\Context\CartContextInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -39,9 +37,9 @@ final class PickupPointsExtension extends AbstractExtension
         ];
     }
 
-    public function getPickupPointById(string $pickupPointId): ?PickupPoint
+    public function getPickupPointById(string $pickupPointId, ?OrderInterface $order = null): ?PickupPoint
     {
-        return $this->searchPickupPointService->byId($pickupPointId);
+        return $this->searchPickupPointService->byId($pickupPointId, $order);
     }
 
     /**

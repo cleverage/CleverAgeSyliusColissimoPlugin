@@ -8,6 +8,7 @@ use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\PickupPointSearchByIdModel
 use CleverAge\SyliusColissimoPlugin\Model\PickupPoint\PickupPointsSearchModel;
 use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Order\Context\CartContextInterface;
+use Sylius\Component\Core\Model\OrderInterface;
 
 final class SearchPickupPointService
 {
@@ -25,15 +26,23 @@ final class SearchPickupPointService
         $this->cartContext = $cartContext;
     }
 
-    public function byId(string $pickupPointId): ?PickupPoint
+    public function byId(string $pickupPointId, ?OrderInterface $order = null): ?PickupPoint
     {
         $search = new PickupPointSearchByIdModel(
             $pickupPointId,
             ((new \DateTime())->add(new \DateInterval('P2D')))->format('d/m/Y'),
         );
 
+        if (!$shippingAddress = $this->cartContext->getCart()->getShippingAddress()) {
+            if (null === $order) {
+                return null;
+            }
+
+            $shippingAddress = $order->getShippingAddress();
+        }
+
         $options = [];
-        $countryCode = $this->cartContext->getCart()->getShippingAddress()->getCountryCode();
+        $countryCode = $shippingAddress->getCountryCode();
         if ($countryCode !== 'FR') {
             $options['reseau'] = PickupPointReseau::getByCountryCodeAndProductCode($countryCode);
         }

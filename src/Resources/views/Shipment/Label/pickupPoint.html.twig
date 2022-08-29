@@ -1,7 +1,7 @@
 {% set pickupPointId = order.pickupPointId %}
 
 {% if pickupPointId %}
-    {% set pickupPoint = clever_age_colissimo_get_pickup_by_id(pickupPointId) %}
+    {% set pickupPoint = clever_age_colissimo_get_pickup_by_id(pickupPointId, order) %}
 
     {% if pickupPoint %}
         <label class="pickup-point-label">
