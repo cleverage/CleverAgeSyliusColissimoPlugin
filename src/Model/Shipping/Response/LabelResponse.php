@@ -9,7 +9,7 @@ class LabelResponse extends BaseResponseModel
     private string $parcelNumber;
     private ?string $parcelNumberPartner = null;
     private ?string $pdfUrl = null;
-    private array $fields;
+    private ?array $fields;
 
     public function getParcelNumber(): string
     {
@@ -47,12 +47,12 @@ class LabelResponse extends BaseResponseModel
         return $this;
     }
 
-    public function getFields(): array
+    public function getFields(): ?array
     {
         return $this->fields;
     }
 
-    public function setFields(array $fields): LabelResponse
+    public function setFields(?array $fields): LabelResponse
     {
         $this->fields = $fields;
 
