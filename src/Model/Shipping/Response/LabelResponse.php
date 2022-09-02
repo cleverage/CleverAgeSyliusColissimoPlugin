@@ -6,10 +6,10 @@ use CleverAge\SyliusColissimoPlugin\Model\BaseResponseModel;
 
 class LabelResponse extends BaseResponseModel
 {
-    private string $parcelNumber;
+    private string $parcelNumber = '';
     private ?string $parcelNumberPartner = null;
     private ?string $pdfUrl = null;
-    private ?array $fields;
+    private ?array $fields = [];
 
     public function getParcelNumber(): string
     {
@@ -54,7 +54,9 @@ class LabelResponse extends BaseResponseModel
 
     public function setFields(?array $fields): LabelResponse
     {
-        $this->fields = $fields;
+        if (null !== $fields) {
+            $this->fields = $fields;
+        }
 
         return $this;
     }
