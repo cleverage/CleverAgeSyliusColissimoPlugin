@@ -45,8 +45,15 @@ class PickupPointByIdService extends AbstractService
         return null;
     }
 
-    public function parseErrorCodeAndThrow(int $errorCode): void
+    public function parseErrorCodeAndThrow(int $errorCode, string $url = '', array $options = []): void
     {
-        throw new PickupPointsRequestException(PickupErrorsCodes::ERRORS[$errorCode]);
+        throw new PickupPointsRequestException(
+            sprintf(
+                '%s [DEBUG : url = %s, options = %s]',
+                PickupErrorsCodes::ERRORS[$errorCode],
+                $url,
+                json_encode($options)
+            )
+        );
     }
 }

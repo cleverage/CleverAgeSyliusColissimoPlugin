@@ -54,7 +54,7 @@ abstract class AbstractService
 
         $return = $xml->xpath('//return');
         if (count($return) && (int) $return[0]->errorCode !== 0) {
-            $this->parseErrorCodeAndThrow((int) $return[0]->errorCode);
+            $this->parseErrorCodeAndThrow((int) $return[0]->errorCode, $url, $options);
         }
 
         return $this->parseResponse($xml);
