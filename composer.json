@@ -24,9 +24,6 @@
         "ext-json": "*",
         "sylius/sylius": "~1.8.0 || ~1.9.0 || ~1.10.0"
     },
-    "conflict": {
-        "api-platform/core": "^2.6"
-    },
     "require-dev": {
         "behat/behat": "^3.6.1",
         "behat/mink-selenium2-driver": "^1.4",
