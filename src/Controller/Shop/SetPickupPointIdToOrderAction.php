@@ -16,18 +16,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class SetPickupPointIdToOrderAction implements ActionInterface
 {
-    private CartContextInterface $cartContext;
-    private EntityManagerInterface $entityManager;
-    private PickupPointByIdService $pickupPointByIdService;
 
     public function __construct(
-        CartContextInterface $cartContext,
-        EntityManagerInterface $entityManager,
-        PickupPointByIdService $pickupPointByIdService
+        private CartContextInterface $cartContext,
+        private EntityManagerInterface $entityManager,
+        private PickupPointByIdService $pickupPointByIdService
     ) {
-        $this->cartContext = $cartContext;
-        $this->entityManager = $entityManager;
-        $this->pickupPointByIdService = $pickupPointByIdService;
     }
 
     public function __invoke(Request $request): Response

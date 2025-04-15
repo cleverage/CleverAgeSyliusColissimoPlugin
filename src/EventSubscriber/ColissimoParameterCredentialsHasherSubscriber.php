@@ -11,18 +11,11 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class ColissimoParameterCredentialsHasherSubscriber implements EventSubscriberInterface
 {
-    private string $encryptionKey;
-    private HasherInterface $hasher;
-    private EntityManagerInterface $entityManager;
-
     public function __construct(
-        string $encryptionKey,
-        HasherInterface $hasher,
-        EntityManagerInterface $entityManager
+        private string $encryptionKey,
+        private HasherInterface $hasher,
+        private EntityManagerInterface $entityManager
     ) {
-        $this->encryptionKey = $encryptionKey;
-        $this->hasher = $hasher;
-        $this->entityManager = $entityManager;
     }
 
     public static function getSubscribedEvents(): array

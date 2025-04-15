@@ -12,18 +12,11 @@ use Sylius\Component\Core\Model\OrderInterface;
 
 final class SearchPickupPointService
 {
-    private PickupPointByIdService $pickupPointByIdService;
-    private PickupPointsService $pickupPointsService;
-    private CartContextInterface $cartContext;
-
     public function __construct(
-        PickupPointByIdService $pickupPointByIdService,
-        PickupPointsService $pickupPointsService,
-        CartContextInterface $cartContext
+        protected PickupPointByIdService $pickupPointByIdService,
+        protected PickupPointsService $pickupPointsService,
+        protected CartContextInterface $cartContext
     ) {
-        $this->pickupPointByIdService = $pickupPointByIdService;
-        $this->pickupPointsService = $pickupPointsService;
-        $this->cartContext = $cartContext;
     }
 
     public function byId(string $pickupPointId, ?OrderInterface $order = null): ?PickupPoint

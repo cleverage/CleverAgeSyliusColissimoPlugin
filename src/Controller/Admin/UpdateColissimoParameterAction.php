@@ -10,38 +10,23 @@ use CleverAge\SyliusColissimoPlugin\Repository\ColissimoParameterRepositoryInter
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 final class UpdateColissimoParameterAction implements ActionInterface
 {
-    private EntityManagerInterface $manager;
-    private Environment $templatingEngine;
-    private ColissimoParameterRepositoryInterface $colissimoParameterRepository;
-    private FormFactoryInterface $formFactory;
-    private EventDispatcherInterface $dispatcher;
-    private FlashBagInterface $flashBag;
-    private TranslatorInterface $translator;
-
     public function __construct(
-        Environment $templatingEngine,
-        EntityManagerInterface $manager,
-        ColissimoParameterRepositoryInterface $colissimoParameterRepository,
-        FormFactoryInterface $formFactory,
-        EventDispatcherInterface $dispatcher,
-        FlashBagInterface $flashBag,
-        TranslatorInterface $translator
+        private EntityManagerInterface $manager,
+        private Environment $templatingEngine,
+        private ColissimoParameterRepositoryInterface $colissimoParameterRepository,
+        private FormFactoryInterface $formFactory,
+        private EventDispatcherInterface $dispatcher,
+        private RequestStack $requestStack,
+        private TranslatorInterface $translator,
     ) {
-        $this->templatingEngine = $templatingEngine;
-        $this->manager = $manager;
-        $this->colissimoParameterRepository = $colissimoParameterRepository;
-        $this->formFactory = $formFactory;
-        $this->dispatcher = $dispatcher;
-        $this->flashBag = $flashBag;
-        $this->translator = $translator;
     }
 
     public function __invoke(Request $request): Response
@@ -60,7 +45,7 @@ final class UpdateColissimoParameterAction implements ActionInterface
         if ($form->isSubmitted() && $form->isValid()) {
             $this->dispatcher->dispatch(new ColissimoParameterCredentialsHasherEvent($colissimoParameter));
 
-            $this->flashBag->add(
+            $this->requestStack->getMainRequest()->getSession()->getFlashBag()->add(
                 'success',
                 $this->translator->trans('clever_age.admin.ui.colissimo_parameter.success'),
             );

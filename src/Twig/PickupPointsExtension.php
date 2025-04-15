@@ -13,18 +13,11 @@ use Twig\TwigFunction;
 
 final class PickupPointsExtension extends AbstractExtension
 {
-    private CartContextInterface $cartContext;
-    private SearchPickupPointService $searchPickupPointService;
-    private TranslatorInterface $translator;
-
     public function __construct(
-        CartContextInterface $cartContext,
-        SearchPickupPointService $searchPickupPointService,
-        TranslatorInterface $translator
+        private CartContextInterface $cartContext,
+        private SearchPickupPointService $searchPickupPointService,
+        private TranslatorInterface $translator
     ) {
-        $this->cartContext = $cartContext;
-        $this->searchPickupPointService = $searchPickupPointService;
-        $this->translator = $translator;
     }
 
     public function getFunctions(): array

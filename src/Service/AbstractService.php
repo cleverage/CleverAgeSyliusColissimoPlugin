@@ -11,27 +11,14 @@ use CleverAge\SyliusColissimoPlugin\Validator\ColissimoParamsValidator;
 
 abstract class AbstractService
 {
-    protected ClientFactory $colissimoClient;
-    protected ColissimoParamsValidator $validator;
-    protected SlsResponseParser $slsResponseParser;
-    protected ColissimoParameterRepositoryInterface $colissimoParameterRepository;
-    protected HasherInterface $hasher;
-    protected string $encryptionKey;
-
     public function __construct(
-        ClientFactory $colissimoClient,
-        ColissimoParamsValidator $validator,
-        SlsResponseParser $slsResponseParser,
-        ColissimoParameterRepositoryInterface $colissimoParameterRepository,
-        HasherInterface $hasher,
-        string $encryptionKey
+        protected ClientFactory $colissimoClient,
+        protected ColissimoParamsValidator $validator,
+        protected SlsResponseParser $slsResponseParser,
+        protected ColissimoParameterRepositoryInterface $colissimoParameterRepository,
+        protected HasherInterface $hasher,
+        protected string $encryptionKey
     ) {
-        $this->colissimoClient = $colissimoClient;
-        $this->validator = $validator;
-        $this->slsResponseParser = $slsResponseParser;
-        $this->colissimoParameterRepository = $colissimoParameterRepository;
-        $this->hasher = $hasher;
-        $this->encryptionKey = $encryptionKey;
     }
 
     protected function doCall(

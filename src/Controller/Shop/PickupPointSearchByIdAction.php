@@ -11,12 +11,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PickupPointSearchByIdAction implements ActionInterface
 {
-    private SearchPickupPointService $searchPickupPointService;
-
     public function __construct(
-        SearchPickupPointService $searchPickupPointService
+        private SearchPickupPointService $searchPickupPointService
     ) {
-        $this->searchPickupPointService = $searchPickupPointService;
     }
 
     public function __invoke(Request $request): Response

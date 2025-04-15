@@ -13,15 +13,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class PickupPointsSearchByCartAddressAction implements ActionInterface
 {
-    private CartContextInterface $cartContext;
-    private SearchPickupPointService $searchPickupPointService;
-
     public function __construct(
-        CartContextInterface $cartContext,
-        SearchPickupPointService $searchPickupPointService
+        private CartContextInterface $cartContext,
+        private SearchPickupPointService $searchPickupPointService,
     ) {
-        $this->cartContext = $cartContext;
-        $this->searchPickupPointService = $searchPickupPointService;
     }
 
     public function __invoke(Request $request): Response

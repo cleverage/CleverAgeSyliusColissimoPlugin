@@ -15,13 +15,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ColissimoParameterType extends AbstractType
 {
-    private string $encryptionKey;
-    private HasherInterface $hasher;
-
-    public function __construct(string $encryptionKey, HasherInterface $hasher)
+    public function __construct(
+        private string $encryptionKey,
+        private HasherInterface $hasher
+    )
     {
-        $this->encryptionKey = $encryptionKey;
-        $this->hasher = $hasher;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void

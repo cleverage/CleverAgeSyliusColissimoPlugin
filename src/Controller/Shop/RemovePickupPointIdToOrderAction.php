@@ -13,15 +13,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class RemovePickupPointIdToOrderAction implements ActionInterface
 {
-    private CartContextInterface $cartContext;
-    private EntityManagerInterface $entityManager;
-
     public function __construct(
-        CartContextInterface $cartContext,
-        EntityManagerInterface $entityManager
+        private CartContextInterface $cartContext,
+        private EntityManagerInterface $entityManager
     ) {
-        $this->cartContext = $cartContext;
-        $this->entityManager = $entityManager;
     }
 
     public function __invoke(Request $request): Response
